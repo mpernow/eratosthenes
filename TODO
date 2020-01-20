@@ -1,0 +1,11 @@
+Implement a class for a database entry
+
+Create the "add_entry.py" script
+	First just to add to database
+	Then also to place the file in directory with uuid random name
+
+Implement searching
+
+Implement a way to retrieve file
+
+Check the notes on the pi
