@@ -47,11 +47,11 @@ class DB_Entry():
 
 	def set_type(self, publication_type):
 		"""
-		Set the publication type to book/article/review
+		Set the publication type to book/article/review/other
 		"""
 		publication_type = publication_type.lower()
-		if not (publication_type == 'book' or publication_type == 'article' or publication_type == 'review'):
-			raise ValueError('Type must be book/article/review')
+		if not (publication_type == 'book' or publication_type == 'article' or publication_type == 'review' or publication_type == 'other'):
+			raise ValueError('Type must be book/article/review/other')
 		else:
 			self.publication_type = publication_type
 	
