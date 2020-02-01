@@ -29,6 +29,8 @@ class DB_Entry():
 		"""
 		Set the publication year
 		"""
+		if not type(year) == int:
+			raise ValueError('Year must be an integer')
 		self.year = year
 	
 	def set_keywords(self, kw_list):
@@ -66,3 +68,18 @@ class DB_Entry():
 
 if __name__ == "__main__":
 	print("Testing the code:")
+	test_entry = DB_Entry()
+	title = 'Best article ever'
+	print('Setting title to '+title)
+	test_entry.set_title(title)
+	author = 'Marcus Pernow'
+	print('Setting author to '+author)
+	test_entry.set_authors('Marcus Pernow')
+	year = 2020
+	print('Setting year to '+str(year))
+	test_entry.set_year(year)
+	keywords = ['physics','mathematics','truth','philosophy']
+	print('Setting keywords list to \n\t'+',\n\t'.join(keywords))
+	pub_type = 'article'
+	print('Setting type to '+pub_type)
+	test_entry.set_type(pub_type)
