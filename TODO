@@ -1,6 +1,14 @@
-Create the "add_entry.py" script
-	First just to add to database
-	Then also to place the file in directory with uuid random name
+Restructure code for adding:
+	Call the add_entry function from main,
+	Let this in turn call the create_entry interface fucntion
+
+Set up the DB table called 'alexandria'
+
+Implement copy_file() to copy the file to the ./bin/ location
+
+Implement add_entry_to_db to add the new DB_Entry object to the database
+
+Make the attributes of DB_Entry class private: Should only be accessed through the setter and getter functions
 
 Implement searching: use LIKE or instr
 

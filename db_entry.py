@@ -64,7 +64,42 @@ class DB_Entry():
 		"""
 		f_name = uuid.uuid1().hex
 		self.path = path + f_name + '.pdf'
+
+	def get_title(self):
+		"""
+		Return the title of self
+		"""
+		return self.title
+
+	def get_authors(self):
+		"""
+		Return the authors of self
+		"""
+		return self.authors
 		
+	def get_year(self):
+		"""
+		Returns the year of self
+		"""
+		return self.year
+
+	def get_keywords(self):
+		"""
+		Returns keyowrds of self as list of strings
+		"""
+		return self.kw_list
+	
+	def get_pub_type(self):
+		"""
+		Returns the publication type of self
+		"""
+		return self.publication_type
+
+	def get_path(self):
+		"""
+		Returns the path of self
+		"""
+		return self.path
 
 if __name__ == "__main__":
 	print("Testing the code:")

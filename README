@@ -2,6 +2,12 @@ Eratosthenes - my library manangement system.
 Will consist of a database containing articles and books with keywords and path to them.
 All of this will be stored on my server so as to make it centralised.
 
+Order of columns in the table is:
+Title, Authors, Year, Publication Type, Keywords, Path
+
+
 Note on name: Eratosthenes was the chief librarian of the Library of Alexandria. He was also a polymath who invented the concepts of latitude and longitude. His qualifications make him suitable to take care of my collection of knowledge.
+The table in the DB is named Alexandria.
+
 
 
