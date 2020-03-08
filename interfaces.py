@@ -12,6 +12,7 @@ def create_entry():
 	"""
 	new_entry = DB_Entry() # Create instance of entry to add the info to
 	print('Eratosthenes is ready to add your new entry.\n')
+	new_entry.set_id()
 	title = input('Enter the title:\n')
 	new_entry.set_title(title)
 	authors = input('Enter the authors as list of surname, firstname separated by semicolons:\n')
@@ -37,7 +38,7 @@ def create_entry():
 			new_entry.set_type(pub_type)
 	keywords = input('Enter list of keywords separated by semicolons:\n')
 	new_entry.set_keywords(keywords.split(';'))
-	current_path = input('Enter the current path to the file')
+	current_path = input('Enter the current path to the file\n')
 	new_entry.set_new_path()
 	#TODO: Copy the file from current_path to new_path
-	return new_entry()
+	return new_entry

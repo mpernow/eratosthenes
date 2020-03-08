@@ -3,8 +3,9 @@ Will consist of a database containing articles and books with keywords and path 
 All of this will be stored on my server so as to make it centralised.
 
 Order of columns in the table is:
-Title, Authors, Year, Publication Type, Keywords, Path
+ID, Title, Authors, Year, Publication Type, Keywords, Path
 
+The ID is in a file called "id_num". This lists all taken IDs and when a new entry is added, it takes one plus the last entry, then appends this to the file.
 
 Note on name: Eratosthenes was the chief librarian of the Library of Alexandria. He was also a polymath who invented the concepts of latitude and longitude. His qualifications make him suitable to take care of my collection of knowledge.
 The table in the DB is named Alexandria.

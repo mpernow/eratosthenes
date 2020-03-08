@@ -1,10 +1,6 @@
-Restructure code for adding:
-	Call the add_entry function from main,
-	Let this in turn call the create_entry interface fucntion
+Implement delete functionality
 
-Set up the DB table called 'alexandria'
-
-Implement copy_file() to copy the file to the ./bin/ location
+Implement copy_file() to copy the file to the ./pdfs/ location. Use the shutil library
 
 Implement add_entry_to_db to add the new DB_Entry object to the database
 

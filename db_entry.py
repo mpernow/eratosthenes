@@ -10,6 +10,22 @@ class DB_Entry():
 	Contains the required fields and methods
 	"""
 
+	def set_id(self):
+		"""
+		Sets the unique id of the entry, with an increasing counter
+		"""
+		# Open file and extract last id
+		f = open('id_num', 'r')
+		nums = f.readlines()
+		num = int(nums[-1][:-1]) + 1
+		f.close()
+		# set the id
+		self.id_num = num
+		# Append to the fil
+		f = open('id_num', 'a')
+		f.write(str(num)+'\n')
+		f.close()
+
 	def set_title(self, title):
 		"""
 		Set the title of the entry

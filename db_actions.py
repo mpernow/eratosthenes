@@ -17,6 +17,7 @@ def add_entry_to_db(entry, db_name = './eratosthenes.db', table_name = 'alexandr
         Adds the DB_Entry object 'entry' to the SQLite database 'db_name'
         """
         # Extract the data from entry:
+	id_num = entry.get_id()
         title = entry.get_title()
         authors = entry.get_authors()
         year = entry.get_year()
@@ -37,8 +38,8 @@ def add_entry_to_db(entry, db_name = './eratosthenes.db', table_name = 'alexandr
         # Never just insert strings into database calls.
         # Instead put them in tuple and use the '?' placeholder (from DB API).
 
-        new_entry = (title, authors, year, pub_type, keywords, path)
-        c.executemany('INSERT INTO ' + table_name + ' VALUES (?,?,?,?,?,?)', new_entry)
+        new_entry = (id_num, title, authors, year, pub_type, keywords, path)
+        c.executemany('INSERT INTO ' + table_name + ' VALUES (?,?,?,?,?,?,?)', (new_entry,))
 
 
 
