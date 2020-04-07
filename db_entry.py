@@ -71,10 +71,10 @@ class DB_Entry():
 		else:
 			self.publication_type = publication_type
 	
-	def set_new_path(self, path = './bin/'):
+	def set_new_path(self, path = './pdfs/'):
 		"""
 		Sets the path of the entry with random file name
-		'path' is the directory with default './bin/'
+		'path' is the directory with default './pdfs/'
 
 		TODO: Allow for non-pdf files
 		"""
@@ -116,6 +116,12 @@ class DB_Entry():
 		Returns the path of self
 		"""
 		return self.path
+	
+	def get_id(self):
+		"""
+		Return the id of the entry
+		"""
+		return self.id_num
 
 if __name__ == "__main__":
 	print("Testing the code:")

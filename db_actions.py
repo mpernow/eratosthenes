@@ -4,12 +4,19 @@
 
 
 import sqlite3
+import shutil
 
 def copy_file(entry, current_dir):
         """
         Function to copy the file corresponding to DB_Entry 'entry',
         currently in current_dir
         """
+		# TODO: Allow shorthand notation, eg ./ or ~
+        new_dir = entry.get_path()
+		try:
+        	shutil.copy(current_dir, new_dir)
+		except IOError, e:
+    		print('Unable to copy file')
 
 
 def add_entry_to_db(entry, db_name = './eratosthenes.db', table_name = 'alexandria'):
@@ -17,7 +24,7 @@ def add_entry_to_db(entry, db_name = './eratosthenes.db', table_name = 'alexandr
         Adds the DB_Entry object 'entry' to the SQLite database 'db_name'
         """
         # Extract the data from entry:
-	id_num = entry.get_id()
+        id_num = entry.get_id()
         title = entry.get_title()
         authors = entry.get_authors()
         year = entry.get_year()

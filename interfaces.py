@@ -2,7 +2,10 @@
 # Author: Marcus Pernow
 # Date: January 2020
 
+import os
+
 from db_entry import *
+import db_actions
 
 def create_entry():
 	"""
@@ -39,6 +42,11 @@ def create_entry():
 	keywords = input('Enter list of keywords separated by semicolons:\n')
 	new_entry.set_keywords(keywords.split(';'))
 	current_path = input('Enter the current path to the file\n')
+        if not os.path.isfile(fname):
+                print('File not found. Please try again')
+	                current_path = input('Enter the current path to the file\n')
+                        if not os.path.isfile(fname):
+			        print('File not found')
 	new_entry.set_new_path()
-	#TODO: Copy the file from current_path to new_path
+	db_actions.copy_file(new_entry, current_path)
 	return new_entry

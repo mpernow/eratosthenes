@@ -33,8 +33,6 @@ def main():
 			print(help_message)
 			
 
-#TODO: Function to copy the file to library
-#TODO: Function to add the new entry to database
 #TODO: Way to search/browse the library
 
 if __name__ == "__main__":
