@@ -25,6 +25,12 @@ class DB_Entry():
 		f = open('id_num', 'a')
 		f.write(str(num)+'\n')
 		f.close()
+	
+	def set_id_manual(self, id_num):
+		"""
+		Manually sets the id
+		"""
+		self.id_num = id_num
 
 	def set_title(self, title):
 		"""
@@ -80,6 +86,12 @@ class DB_Entry():
 		"""
 		f_name = uuid.uuid1().hex
 		self.path = path + f_name + '.pdf'
+	
+	def set_path_manual(self, path):
+		"""
+		Manually set the path
+		"""
+		self.path = path
 
 	def get_title(self):
 		"""
@@ -122,6 +134,28 @@ class DB_Entry():
 		Return the id of the entry
 		"""
 		return self.id_num
+	
+	def __str__(self):
+		"""
+		Prints the entry nicely
+		"""
+		return str(self.id_num) + '\t|\t' + self.title + '\t|\t' + self.authors + '\t|\t' + str(self.year)
+
+
+def make_entry(row):
+	"""
+	Takes a row from querying database and creates an entry object
+	"""
+	entry = DB_Entry()
+	entry.set_id_manual(row[0])
+	entry.set_title(row[1])
+	entry.set_authors(row[2])
+	entry.set_year(row[3])
+	entry.set_type(row[4])
+	entry.set_keywords(row[5].split(';'))
+	entry.set_path_manual(row[6])
+	return entry
+
 
 if __name__ == "__main__":
 	print("Testing the code:")
