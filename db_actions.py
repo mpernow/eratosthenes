@@ -83,3 +83,28 @@ def display(db_name = './eratosthenes.db', table_name = 'alexandria'):
 
     # Close connection (note no commit since we made no changes)
     conn.close()
+
+def search(query, db_name = './eratosthenes.db', table_name = 'alexandria'):
+    """
+    Displays the entries matching the search_word
+    """
+    # Open connection to database
+    conn = sqlite3.connect(db_name)
+
+    # Create cursor
+    c = conn.cursor()
+
+    entries = []
+
+    t = ('%'+query+'%',)
+    for row in c.execute('SELECT * FROM ' + table_name + ' WHERE keywords LIKE ?', t):
+        entries.append(db_entry.make_entry(row))
+
+    for entry in entries:
+        print(entry)
+
+
+
+    # Close connection (note no commit since we made no changes)
+    conn.close()
+

@@ -42,10 +42,10 @@ def create_entry():
     keywords = input('Enter list of keywords separated by semicolons:\n')
     new_entry.set_keywords(keywords.split(';'))
     current_path = input('Enter the current path to the file\n')
-    if not os.path.isfile(fname):
+    if not os.path.isfile(current_path):
         print('File not found. Please try again')
         current_path = input('Enter the current path to the file\n')
-        if not os.path.isfile(fname):
+        if not os.path.isfile(current_path):
             print('File not found')
     new_entry.set_new_path()
     db_actions.copy_file(new_entry, current_path)
@@ -58,4 +58,5 @@ def search():
     """
     query = input('Please enter your search query\n')
     # For now, we will just print the whole database
-    db_actions.display()
+    #db_actions.display()
+    db_actions.search(query)
