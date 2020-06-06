@@ -7,13 +7,12 @@ import sqlite3
 import shutil
 import db_entry
 
-def copy_file(entry, current_dir):
+def copy_file(new_dir, current_dir):
     """
     Function to copy the file corresponding to DB_Entry 'entry',
     currently in current_dir
     """
     # TODO: Allow shorthand notation, eg ./ or ~
-    new_dir = entry.get_path()
     try:
         shutil.copy(current_dir, new_dir)
     except IOError:
@@ -107,4 +106,34 @@ def search(query, db_name = './eratosthenes.db', table_name = 'alexandria'):
 
     # Close connection (note no commit since we made no changes)
     conn.close()
+
+def retrieve(id_num, db_name = './eratosthenes.db', table_name = 'alexandria'):
+    """
+    Retrieves the entry with id_num
+    """
+    # Open connection to database
+    conn = sqlite3.connect(db_name)
+
+    # Create cursor
+    c = conn.cursor()
+
+    entries = []
+
+    t = (str(id_num),)
+    for row in c.execute('SELECT * FROM ' + table_name + ' WHERE ID=?', t):
+        entries.append(db_entry.make_entry(row))
+
+    # Close connection (note no commit since we made no changes)
+    conn.close()
+
+    if len(entries) > 1:
+        print('More than one entry was found. Will only retrieve the first one.')
+
+    for entry in entries:
+        print(entry)
+
+    current_path = entries[0].get_path()
+    new_path = '/Users/marcus/eratosthenes_downloads'+'/'+entries[0].get_title()+'.pdf'
+
+    copy_file(new_path, current_path)
 

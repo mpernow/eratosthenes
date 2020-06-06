@@ -13,7 +13,12 @@ def main():
     Main function to run the eratosthened database system
     """
     welcome_message = '\nWelcome to Eratosthenes!\n'
-    help_message = '\nPossible commands:\n\tq\t Quit the program\n\tadd\t Add a new entry\n\tsearch\t Search the database\n\tget\t Download a document (to be implemented)'
+    help_message = '\nPossible commands:\n'\
+                    '\tq\t Quit the program\n'\
+                    '\tadd\t Add a new entry\n'\
+                    '\tsearch\t Search the database\n'\
+                    '\tget\t Retrieve a document\n'\
+                    '\tdelete\t Delete an entry'
     print(welcome_message)
     print(help_message)
 
@@ -29,14 +34,15 @@ def main():
         elif status == 'display':
             db_actions.display()
         elif status == 'get':
-            print('Not yet implemented')
+            interfaces.get()
+        elif status == 'delete':
+            interfaces.delete()
         elif (status == 'q' or status == 'quit' or status == 'exit'):
             break
         else:
             print(help_message)
             
 
-#TODO: Way to search/browse the library
 
 if __name__ == "__main__":
     main()

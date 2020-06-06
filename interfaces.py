@@ -48,7 +48,7 @@ def create_entry():
         if not os.path.isfile(current_path):
             print('File not found')
     new_entry.set_new_path()
-    db_actions.copy_file(new_entry, current_path)
+    db_actions.copy_file(new_entry.get_path(), current_path)
     return new_entry
 
 
@@ -60,3 +60,16 @@ def search():
     # For now, we will just print the whole database
     #db_actions.display()
     db_actions.search(query)
+
+def get():
+    """
+    Interface for downloading a pdf
+    """
+    id_num = int(input('Enter the ID number of the item you wish to retrieve\n'))
+    db_actions.retrieve(id_num)
+
+def delete():
+    """
+    Deletes an entry using ID number
+    """
+    print('Not yet implemented')
