@@ -72,4 +72,5 @@ def delete():
     """
     Deletes an entry using ID number
     """
-    print('Not yet implemented')
+    id_num = int(input('Enter the ID number of the item you wish to delete\n'))
+    db_actions.remove(id_num)

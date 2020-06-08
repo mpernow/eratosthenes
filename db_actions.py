@@ -5,6 +5,7 @@
 
 import sqlite3
 import shutil
+import os
 import db_entry
 
 def copy_file(new_dir, current_dir):
@@ -102,8 +103,9 @@ def search(query, db_name = './eratosthenes.db', table_name = 'alexandria'):
     for entry in entries:
         print(entry)
 
-
-
+    if len(entries) == 0:
+        print('No entries found.')
+    
     # Close connection (note no commit since we made no changes)
     conn.close()
 
@@ -137,3 +139,31 @@ def retrieve(id_num, db_name = './eratosthenes.db', table_name = 'alexandria'):
 
     copy_file(new_path, current_path)
 
+def remove(id_num, db_name = './eratosthenes.db', table_name = 'alexandria'):
+    """
+    Removes the entry with id_num from database and pdf folder
+    """
+    # Open connection to database
+    conn = sqlite3.connect(db_name)
+
+    # Create cursor
+    c = conn.cursor()
+
+    entries = []
+
+    t = (str(id_num),)
+    for row in c.execute('SELECT * FROM ' + table_name + ' WHERE ID=?', t):
+        entries.append(db_entry.make_entry(row))
+
+    c.execute('DELETE FROM ' + table_name + ' WHERE ID=?', t)
+    conn.commit()
+
+    # Close connection (note no commit since we made no changes)
+    conn.close()
+
+    path = entries[0].get_path()
+
+    try:
+        os.remove(path)
+    except OSError:
+        print('File not found. No file was deleted.')
