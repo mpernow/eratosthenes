@@ -6,8 +6,6 @@ from db_entry import *
 import interfaces
 import db_actions
 
-
-
 def main():
     """
     Main function to run the eratosthened database system

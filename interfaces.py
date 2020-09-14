@@ -35,6 +35,7 @@ def create_entry():
     except ValueError:
         try:
             pub_type = input('Type must be one of article/review/book/other:\n')
+            new_entry.set_type(pub_type)
         except ValueError:
             print('You failed to follow basic instructions. Type is now set to \'other\'\n')
             pub_type = 'other'
@@ -42,6 +43,7 @@ def create_entry():
     keywords = input('Enter list of keywords separated by semicolons:\n')
     new_entry.set_keywords(keywords.split(';'))
     current_path = input('Enter the current path to the file\n')
+    current_path = current_path.replace('~', '/Users/marcus')
     if not os.path.isfile(current_path):
         print('File not found. Please try again')
         current_path = input('Enter the current path to the file\n')

@@ -1,6 +1,10 @@
 Eratosthenes - my library manangement system.
-Will consist of a database containing articles and books with keywords and path to them.
+Consists of a database containing articles and books with keywords and path to them.
 All of this will be stored on my server so as to make it centralised.
+
+It is accessed by simply running the script eratosthenes.py. This will work assuming that you have ssh keys set up.
+
+Note that paths and ssh addresses are hard-coded into the code.
 
 Order of columns in the table is:
 ID, Title, Authors, Year, Publication Type, Keywords, Path
@@ -11,4 +15,20 @@ Note on name: Eratosthenes was the chief librarian of the Library of Alexandria.
 The table in the DB is named Alexandria.
 
 
+=========================================
 
+Release history:
+
+v1.2: 2020-11-14
+    Implemented config.py to automatically check whether on home network or not and set the ip address in ssh appropriately.
+
+v1.1: 2020-06-20
+	Bug fixes regarding transfer over scp
+
+v1: 2020-06-16
+	Implemented communication via ssh to store database and the pdfs there. 
+	The scripts that should be placed on the server under ~/eratoshtenes/ are in the folder 'on_pi'
+	Additionally, small bug changes
+
+v0: 2020-06-14
+	Fully functioning first version. Only possible to use local databse, i.e. ssh not set up

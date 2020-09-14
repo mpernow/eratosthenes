@@ -77,7 +77,7 @@ class DB_Entry():
 		else:
 			self.publication_type = publication_type
 	
-	def set_new_path(self, path = './pdfs/'):
+	def set_new_path(self, path = '/mnt/mystorage/pdfs/'):
 		"""
 		Sets the path of the entry with random file name
 		'path' is the directory with default './pdfs/'
