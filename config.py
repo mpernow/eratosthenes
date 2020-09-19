@@ -15,8 +15,8 @@ my_ip = get_ip()
 #print(my_ip)
 
 usr = "pi"
-ip_local = "192.168.0.100"
-ip_global = "37.46.161.205"
+ip_local = # LOCAL IP GOES HERE
+ip_global = # PUBLIC IP GOES HERE
 
 if my_ip == ip_global:
     addr = usr+"@"+ip_local
